@@ -1,5 +1,8 @@
 package pucrs.myflight.consoleApp;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
 
 import pucrs.myflight.modelo.Aeronave;
@@ -10,7 +13,9 @@ import pucrs.myflight.modelo.GerenciadorAeronaves;
 import pucrs.myflight.modelo.GerenciadorAeroportos;
 import pucrs.myflight.modelo.GerenciadorCias;
 import pucrs.myflight.modelo.GerenciadorRotas;
+import pucrs.myflight.modelo.GerenciadorVoos;
 import pucrs.myflight.modelo.Rota;
+import pucrs.myflight.modelo.Voo;
 
 public class App {
 
@@ -22,6 +27,7 @@ public class App {
 		GerenciadorCias empresas = new GerenciadorCias();
 		GerenciadorAeroportos aeroportos = new GerenciadorAeroportos();
 		GerenciadorRotas rotas = new GerenciadorRotas();
+		GerenciadorVoos voos = new GerenciadorVoos();
 
 		//Adicionando as Aeronaves
 		Aeronave a1 = new Aeronave("733", "Boeing 737-300", 140);
@@ -59,7 +65,7 @@ public class App {
 		aeroportos.adicionar(ap3);
 		aeroportos.adicionar(ap4);
 
-		//Adicionando Rotas
+		//Adicionando as Rotas
 		Rota r1 = new Rota(c1, ap1, ap2, a1);
 		Rota r2 = new Rota(c2, ap3, ap1, a4);
 		Rota r3 = new Rota(c3, ap4, ap2, a2);
@@ -68,6 +74,24 @@ public class App {
 		rotas.adicionar(r2);
 		rotas.adicionar(r3);
 		rotas.adicionar(r4);
+
+		//Criando Data/hora e duracao
+		LocalDateTime dh1 = LocalDateTime.of(2020, Month.APRIL, 28, 15, 30);
+		LocalDateTime dh2 = LocalDateTime.of(2020, Month.AUGUST, 16, 17, 15);
+		LocalDateTime dh3 = LocalDateTime.of(2020, Month.AUGUST, 10, 12, 00);
+		LocalDateTime dh4 = LocalDateTime.of(2020, Month.JANUARY, 1, 14, 00); //nao utilizada
+		Duration d1 = Duration.ofMinutes(120);
+		Duration d2 = Duration.ofMinutes(300);
+
+		//Adicionando os Voos
+		Voo v1 = new Voo(r1, dh1, d1);
+		Voo v2 = new Voo(r2, dh2, d2);
+		Voo v3 = new Voo(r3, dh2, d1);
+		Voo v4 = new Voo(r4, dh3, d2);
+		voos.adicionar(v1);
+		voos.adicionar(v2);
+		voos.adicionar(v3);
+		voos.adicionar(v4);
 
 
 		//////// TESTE DO GERENCIADOR DE AERONAVES ////////
@@ -109,17 +133,28 @@ public class App {
 
 		//////// TESTE DO GERENCIADOR DE ROTAS ////////
 
-		System.out.println(rotas.listarTodas());
+		// System.out.println(rotas.listarTodas());
 
-		ArrayList<Rota> teste5 = rotas.buscarPorDestino(ap2);
-		if(teste5 != null){
-			System.out.printf("Foram encontrados %d rotas:\n", teste5.size());
-			for (int i = 0; i < teste5.size(); i++) {
-				Rota atual = teste5.get(i);
-				System.out.println("  " + atual.toString());
-			}
+		// ArrayList<Rota> teste5 = rotas.buscarPorDestino(ap2);
+		// if(teste5 != null){
+		// 	System.out.printf("Foram encontrados %d rotas:\n", teste5.size());
+		// 	for (int i = 0; i < teste5.size(); i++) {
+		// 		Rota atual = teste5.get(i);
+		// 		System.out.println("  " + atual.toString());
+		// 	}
+		// }else{
+		// 	System.out.println("Nenhuma rota encontrada.");
+		// }
+
+		//////// TESTE DO GERENCIADOR DE VOOS ////////
+
+		System.out.println(voos.listarTodos());
+
+		ArrayList<Voo> teste6 = voos.buscarPorData(dh4);
+		if(teste6 != null){
+			System.out.printf("Encontrei %d voo(s)", teste6.size());
 		}else{
-			System.out.println("Nenhuma rota encontrada.");
+			System.out.println("Nao encontrei nenhum voo.");
 		}
 	}
 }
