@@ -1,5 +1,7 @@
 package pucrs.myflight.consoleApp;
 
+import java.util.ArrayList;
+
 import pucrs.myflight.modelo.Aeronave;
 import pucrs.myflight.modelo.Aeroporto;
 import pucrs.myflight.modelo.CiaAerea;
@@ -7,6 +9,8 @@ import pucrs.myflight.modelo.Geo;
 import pucrs.myflight.modelo.GerenciadorAeronaves;
 import pucrs.myflight.modelo.GerenciadorAeroportos;
 import pucrs.myflight.modelo.GerenciadorCias;
+import pucrs.myflight.modelo.GerenciadorRotas;
+import pucrs.myflight.modelo.Rota;
 
 public class App {
 
@@ -17,6 +21,7 @@ public class App {
 		GerenciadorAeronaves aeronaves = new GerenciadorAeronaves();
 		GerenciadorCias empresas = new GerenciadorCias();
 		GerenciadorAeroportos aeroportos = new GerenciadorAeroportos();
+		GerenciadorRotas rotas = new GerenciadorRotas();
 
 		//Adicionando as Aeronaves
 		Aeronave a1 = new Aeronave("733", "Boeing 737-300", 140);
@@ -54,6 +59,15 @@ public class App {
 		aeroportos.adicionar(ap3);
 		aeroportos.adicionar(ap4);
 
+		//Adicionando Rotas
+		Rota r1 = new Rota(c1, ap1, ap2, a1);
+		Rota r2 = new Rota(c2, ap3, ap1, a4);
+		Rota r3 = new Rota(c3, ap4, ap2, a2);
+		Rota r4 = new Rota(c4, ap2, ap3, a3);
+		rotas.adicionar(r1);
+		rotas.adicionar(r2);
+		rotas.adicionar(r3);
+		rotas.adicionar(r4);
 
 
 		//////// TESTE DO GERENCIADOR DE AERONAVES ////////
@@ -85,13 +99,27 @@ public class App {
 
 		//////// TESTE DO GERENCIADOR DE AEROPORTOS ////////
 		
-		System.out.println(aeroportos.listarTodos());
+		// System.out.println(aeroportos.listarTodos());
 
-		String codAeroporto = "GRU";
+		// String codAeroporto = "GRU";
 
-		Aeroporto teste4 = aeroportos.buscarPorCodigo(codAeroporto);
+		// Aeroporto teste4 = aeroportos.buscarPorCodigo(codAeroporto);
 
-		System.out.println(teste4 == null?("Aeroporto com codigo " + codAeroporto + " nao encontrado") : teste4.getNome());
+		// System.out.println(teste4 == null?("Aeroporto com codigo " + codAeroporto + " nao encontrado") : teste4.getNome());
 
+		//////// TESTE DO GERENCIADOR DE ROTAS ////////
+
+		System.out.println(rotas.listarTodas());
+
+		ArrayList<Rota> teste5 = rotas.buscarPorDestino(ap2);
+		if(teste5 != null){
+			System.out.printf("Foram encontrados %d rotas:\n", teste5.size());
+			for (int i = 0; i < teste5.size(); i++) {
+				Rota atual = teste5.get(i);
+				System.out.println("  " + atual.toString());
+			}
+		}else{
+			System.out.println("Nenhuma rota encontrada.");
+		}
 	}
 }

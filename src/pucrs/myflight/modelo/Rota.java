@@ -20,4 +20,10 @@ public class Rota {
 	public Aeroporto getOrigem() { return origem; } 
 	
 	public Aeronave getAeronave() { return aeronave; } 
+
+	public String toString(){
+		String res = "";
+		res += cia.getCodigo() + "\t" + origem.getCodigo() + " --> " + destino.getCodigo() + " | " + aeronave.getCodigo();
+		return res;
+	}
 }
