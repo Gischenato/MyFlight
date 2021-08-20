@@ -88,10 +88,12 @@ public class App {
 		Voo v2 = new Voo(r2, dh2, d2);
 		Voo v3 = new Voo(r3, dh2, d1);
 		Voo v4 = new Voo(r4, dh3, d2);
+		Voo v5 = new Voo(r3, d1);  //Criando Voo com o segundo construtor (Exercicio 1)
 		voos.adicionar(v1);
 		voos.adicionar(v2);
 		voos.adicionar(v3);
 		voos.adicionar(v4);
+		voos.adicionar(v5);
 
 
 		//////// TESTE DO GERENCIADOR DE AERONAVES ////////
