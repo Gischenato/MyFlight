@@ -150,13 +150,24 @@ public class App {
 
 		//////// TESTE DO GERENCIADOR DE VOOS ////////
 
-		System.out.println(voos.listarTodos());
+		// System.out.println(voos.listarTodos());
 
-		ArrayList<Voo> teste6 = voos.buscarPorData(dh4);
-		if(teste6 != null){
-			System.out.printf("Encontrei %d voo(s)", teste6.size());
-		}else{
-			System.out.println("Nao encontrei nenhum voo.");
-		}
+		// ArrayList<Voo> teste6 = voos.buscarPorData(dh4);
+		// if(teste6 != null){
+		// 	System.out.printf("Encontrei %d voo(s)", teste6.size());
+		// }else{
+		// 	System.out.println("Nao encontrei nenhum voo.");
+		// }
+
+
+		//////// TESTANDO A FUNCAO DISTANCIA ////////
+
+		Aeroporto salgadoFilho = aeroportos.buscarPorCodigo("POA");
+		Aeroporto guarulhos = aeroportos.buscarPorCodigo("GRU");
+
+		double distancia = Geo.distancia(salgadoFilho.getLocal(), guarulhos.getLocal());
+
+		System.out.printf("A distancia entre %s e %s eh %.2fkm\n",salgadoFilho.getCodigo(), guarulhos.getCodigo(), distancia);
+	
 	}
 }
