@@ -13,7 +13,7 @@ public class GerenciadorAeroportos {
         aeroportos.add(aeroporto);
     }
 
-    public String listarTodos(){
+    public String toString(){
         String res = "Aeroportos:\n";
 
         for(int i = 0; i<aeroportos.size(); i++){

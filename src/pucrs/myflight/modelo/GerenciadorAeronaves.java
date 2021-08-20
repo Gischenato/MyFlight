@@ -13,7 +13,7 @@ public class GerenciadorAeronaves {
         aeronaves.add(aviao);
     }
 
-    public String listarTodas(){
+    public String toString(){
         String res = "Aeronaves:\n";
 
         for(int i = 0; i<aeronaves.size(); i++){

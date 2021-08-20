@@ -13,7 +13,7 @@ public class GerenciadorCias {
 		empresas.add(cia);
 	}
 
-	public String listarTodas(){
+	public String toString(){
 		String res = "Empresas:\n";
 
 		for(int i = 0; i<empresas.size(); i++){

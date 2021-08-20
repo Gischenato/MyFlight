@@ -13,7 +13,7 @@ public class GerenciadorRotas {
         rotas.add(rota);
     }
 
-    public String listarTodas(){
+    public String toString(){
         String res = "Rotas: \n";
         res += " Cia  Origem  Destino Cod\n\n";
         for (int i = 0; i < rotas.size(); i++) {
