@@ -125,7 +125,7 @@ public class App {
 
 		//////// TESTE DO GERENCIADOR DE AEROPORTOS ////////
 		
-		// System.out.println(aeroportos.listarTodos());
+		// System.out.println(aeroportos.toString());
 
 		// String codAeroporto = "GRU";
 
@@ -150,7 +150,7 @@ public class App {
 
 		//////// TESTE DO GERENCIADOR DE VOOS ////////
 
-		// System.out.println(voos.listarTodos());
+		// System.out.println(voos.toString());
 
 		// ArrayList<Voo> teste6 = voos.buscarPorData(dh4);
 		// if(teste6 != null){

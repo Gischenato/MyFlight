@@ -13,6 +13,10 @@ public class GerenciadorAeronaves {
         aeronaves.add(aviao);
     }
 
+    public ArrayList<Aeronave> listarTodos(){
+        return aeronaves;
+    }
+
     public String toString(){
         String res = "Aeronaves:\n";
 

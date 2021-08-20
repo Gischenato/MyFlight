@@ -13,6 +13,10 @@ public class GerenciadorRotas {
         rotas.add(rota);
     }
 
+    public ArrayList<Rota> listarTodos(){
+        return rotas;
+    }
+
     public String toString(){
         String res = "Rotas: \n";
         res += " Cia  Origem  Destino Cod\n\n";

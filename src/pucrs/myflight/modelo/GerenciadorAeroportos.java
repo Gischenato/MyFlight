@@ -13,6 +13,10 @@ public class GerenciadorAeroportos {
         aeroportos.add(aeroporto);
     }
 
+    public ArrayList<Aeroporto> listarTodos(){
+        return aeroportos;
+    }
+
     public String toString(){
         String res = "Aeroportos:\n";
 

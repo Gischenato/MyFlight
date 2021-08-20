@@ -13,6 +13,10 @@ public class GerenciadorCias {
 		empresas.add(cia);
 	}
 
+	public ArrayList<CiaAerea> listarTodos(){
+        return empresas;
+    }
+
 	public String toString(){
 		String res = "Empresas:\n";
 

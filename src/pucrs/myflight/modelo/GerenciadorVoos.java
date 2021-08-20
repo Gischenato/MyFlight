@@ -14,6 +14,10 @@ public class GerenciadorVoos {
         voos.add(voo);
     }
 
+    public ArrayList<Voo> listarTodos(){
+        return voos;
+    }
+
     public String toString(){
         String res = "Voos:\n";
         res += " Cia  Origem  Destino Cod  Horario Duracao\n\n";
