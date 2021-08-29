@@ -1,6 +1,7 @@
 package pucrs.myflight.modelo;
 
 import java.time.Duration;
+import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 import java.time.Month;
 
@@ -41,5 +42,17 @@ public class Voo {
 	
 	public void setStatus(Status novoStatus) {
 		this.status = novoStatus;
+	}
+
+	public String toString(){
+        DateTimeFormatter formatado = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		String res = "";
+
+		res += "  "+getRota().toString() + "   " + getDatahora().getHour();
+		res += ":" + (getDatahora().getMinute()== 0 ? "00" : getDatahora().getMinute()); 
+		res += "    " + getDuracao().toMinutes();
+		res += "   " + getDatahora().format(formatado) + "";
+
+		return res;
 	}
 }

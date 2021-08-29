@@ -28,10 +28,7 @@ public class GerenciadorVoos {
 
         for (int i = 0; i < voos.size(); i++) {
             Voo atual = voos.get(i);
-            res += "  "+atual.getRota().toString() + "   " + atual.getDatahora().getHour();
-            res += ":" + (atual.getDatahora().getMinute()== 0 ? "00" : atual.getDatahora().getMinute()); 
-            res += "    " + atual.getDuracao().toMinutes();
-            res += "   " + atual.getDatahora().format(formatado) + "\n";
+            res+= atual.toString() + "\n";
         }
 
         return res;
