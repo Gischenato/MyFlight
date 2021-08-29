@@ -169,5 +169,7 @@ public class App {
 
 		System.out.printf("A distancia entre %s e %s eh %.2fkm\n",salgadoFilho.getCodigo(), guarulhos.getCodigo(), distancia);
 	
+		System.out.println(g1.distancia(g2));
+		
 	}
 }

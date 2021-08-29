@@ -33,4 +33,10 @@ public class Geo {
 
 		return distancia;
 	}
+
+	public double distancia(Geo g1){
+		Geo g2 = new Geo(latitude, longitude);
+
+		return distancia(g1, g2);
+	}
 }
