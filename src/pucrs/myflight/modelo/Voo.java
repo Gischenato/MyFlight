@@ -12,8 +12,10 @@ public class Voo {
 	private Duration duracao;
 	private Rota rota;
 	private Status status;
+	private static int totalVoos = 0;
 	
 	public Voo(Rota rota, LocalDateTime datahora, Duration duracao) {
+		totalVoos++;
 		this.rota = rota;
 		this.datahora = datahora;
 		this.duracao = duracao;
@@ -34,6 +36,8 @@ public class Voo {
 	public Duration getDuracao() { return duracao; }
 	
 	public Status getStatus() { return status; }
+
+	public static int getTotalVoos(){ return totalVoos; }
 	
 	public void setStatus(Status novoStatus) {
 		this.status = novoStatus;

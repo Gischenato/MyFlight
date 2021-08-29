@@ -4,8 +4,10 @@ public class Aeroporto {
 	private String codigo;
 	private String nome;
 	private Geo loc;
+	private static int totalAeroportos = 0;
 	
 	public Aeroporto(String codigo, String nome, Geo loc) {
+		totalAeroportos++;
 		this.codigo = codigo;
 		this.nome = nome;
 		this.loc = loc;
@@ -16,4 +18,6 @@ public class Aeroporto {
 	public String getNome() { return nome; }
 	
 	public Geo getLocal() { return loc; }
+
+	public static int getTotalAeroportos(){ return totalAeroportos; }
 }

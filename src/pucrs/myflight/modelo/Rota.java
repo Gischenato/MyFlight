@@ -5,8 +5,10 @@ public class Rota {
 	private Aeroporto origem;
 	private Aeroporto destino;
 	private Aeronave aeronave;
+	private static int totalRotas = 0;
 	
 	public Rota(CiaAerea cia, Aeroporto origem, Aeroporto destino, Aeronave aeronave) {
+		totalRotas++;
 		this.cia = cia;
 		this.origem = origem;
 		this.destino = destino;
@@ -20,6 +22,8 @@ public class Rota {
 	public Aeroporto getOrigem() { return origem; } 
 	
 	public Aeronave getAeronave() { return aeronave; } 
+
+	public static int getTotalRotas(){ return totalRotas; }
 
 	public String toString(){
 		String res = "";
