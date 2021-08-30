@@ -96,68 +96,75 @@ public class App {
 		voos.adicionar(v5);
 
 
-		//////// TESTE DO GERENCIADOR DE AERONAVES ////////
+		////// TESTE DO GERENCIADOR DE AERONAVES ////////
 
-		// System.out.println(aeronaves.listarTodas());
+		System.out.println(aeronaves.toString());
 
-		// String codAeronave = "380";
+		String codAeronave = "380";
 
-		// Aeronave teste1 = aeronaves.buscarPorCodigo(codAeronave);
+		Aeronave teste1 = aeronaves.buscarPorCodigo(codAeronave);
 
-		// if(teste != null){
-		// 	System.out.println("\n" + teste.getDescricao());
-		// }else{
-		// 	System.out.printf("Aeronave com codigo %s nao encontrado\n", cod);
-		// }
+		if(teste1 != null){
+			System.out.println("\n" + teste1.getDescricao());
+		}else{
+			System.out.printf("Aeronave com codigo %s nao encontrado\n", codAeronave);
+		}
 
-		///////// TESTE DO GERENCIADOR DE CIAS ////////
+		/////// TESTE DO GERENCIADOR DE CIAS ////////
 
-		// System.out.println(empresas.listarTodas());
+		System.out.println(empresas.toString());
 
-		// String codEmpresa = "G2";
-		// String nomeEmpresa = "Azul Linhas Aereas";
+		String codEmpresa = "G2";
+		String nomeEmpresa = "Azul Linhas Aereas";
 
-		// CiaAerea teste2 = empresas.buscarPorCodigo(codEmpresa);
-		// CiaAerea teste3 = empresas.buscarPorNome(nomeEmpresa);
+		CiaAerea teste2 = empresas.buscarPorCodigo(codEmpresa);
+		CiaAerea teste3 = empresas.buscarPorNome(nomeEmpresa);
 
-		// System.out.println(teste2 == null?("Empresa com codigo " + codEmpresa + " nao encontrado") : teste2.getNome());
-		// System.out.println(teste3 == null?("Empresa com nome " + nomeEmpresa + " nao encontrado") : teste3.getNome());
+		System.out.println(teste2 == null?("Empresa com codigo " + codEmpresa + " nao encontrado") : teste2.getNome());
+		System.out.println(teste3 == null?("Empresa com nome " + nomeEmpresa + " nao encontrado") : teste3.getNome());
 
-		//////// TESTE DO GERENCIADOR DE AEROPORTOS ////////
+		////// TESTE DO GERENCIADOR DE AEROPORTOS ////////
 		
-		// System.out.println(aeroportos.toString());
+		System.out.println(aeroportos.toString());
 
-		// String codAeroporto = "GRU";
+		String codAeroporto = "GRU";
 
-		// Aeroporto teste4 = aeroportos.buscarPorCodigo(codAeroporto);
+		Aeroporto teste4 = aeroportos.buscarPorCodigo(codAeroporto);
 
-		// System.out.println(teste4 == null?("Aeroporto com codigo " + codAeroporto + " nao encontrado") : teste4.getNome());
+		System.out.println(teste4 == null?("Aeroporto com codigo " + codAeroporto + " nao encontrado") : teste4.getNome());
 
-		//////// TESTE DO GERENCIADOR DE ROTAS ////////
+		////// TESTE DO GERENCIADOR DE ROTAS ////////
 
-		// System.out.println(rotas.listarTodas());
+		System.out.println(rotas.toString());
 
-		// ArrayList<Rota> teste5 = rotas.buscarPorDestino(ap2);
-		// if(teste5 != null){
-		// 	System.out.printf("Foram encontrados %d rotas:\n", teste5.size());
-		// 	for (int i = 0; i < teste5.size(); i++) {
-		// 		Rota atual = teste5.get(i);
-		// 		System.out.println("  " + atual.toString());
-		// 	}
-		// }else{
-		// 	System.out.println("Nenhuma rota encontrada.");
-		// }
+		ArrayList<Rota> teste5 = rotas.buscarPorDestino(ap2);
+		if(teste5 != null){
+			System.out.printf("Foram encontrados %d rotas:\n", teste5.size());
+			for (int i = 0; i < teste5.size(); i++) {
+				Rota atual = teste5.get(i);
+				System.out.println("  " + atual.toString());
+			}
+		}else{
+			System.out.println("Nenhuma rota encontrada.");
+		}
 
-		//////// TESTE DO GERENCIADOR DE VOOS ////////
+		////// TESTE DO GERENCIADOR DE VOOS ////////
+		ArrayList<Voo> listaDeVoos = voos.listarTodos();
 
-		// System.out.println(voos.toString());
+		System.out.println(voos.toString());
+		System.out.println("\n");
+		System.out.println("Lista de voos: (usando foreach e listarTodos())");
+		for (Voo voo : listaDeVoos) {
+			System.out.println(voo.toString());
+		}
+		
 
-		// ArrayList<Voo> teste6 = voos.buscarPorData(dh4);
-		// if(teste6 != null){
-		// 	System.out.printf("Encontrei %d voo(s)", teste6.size());
-		// }else{
-		// 	System.out.println("Nao encontrei nenhum voo.");
-		// }
+		ArrayList<Voo> teste6 = voos.buscarPorData(dh4);
+		if(teste6 != null){
+			System.out.printf("Encontrei %d voo(s)", teste6.size());
+		}else{
+			System.out.println("Nao encontrei nenhum voo.");
+		}
 
 
 		//////// TESTANDO A FUNCAO DISTANCIA ////////
