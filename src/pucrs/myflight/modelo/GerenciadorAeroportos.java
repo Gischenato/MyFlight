@@ -22,7 +22,7 @@ public class GerenciadorAeroportos {
 
         for(int i = 0; i<aeroportos.size(); i++){
             Aeroporto atual = aeroportos.get(i);
-            res += "  (" + atual.getCodigo() + ") - " + atual.getNome() + "\n";
+            res += "  " + atual.toString() + "\n";
         }
         return res;
     }

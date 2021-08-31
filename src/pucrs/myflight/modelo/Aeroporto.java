@@ -19,5 +19,10 @@ public class Aeroporto {
 	
 	public Geo getLocal() { return loc; }
 
+	@Override
+	public String toString(){
+		return "(" + getCodigo() + ") - " + getNome();
+	}
+
 	public static int getTotalAeroportos(){ return totalAeroportos; }
 }

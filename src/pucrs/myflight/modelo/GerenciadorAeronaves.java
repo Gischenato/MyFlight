@@ -22,7 +22,7 @@ public class GerenciadorAeronaves {
 
         for(int i = 0; i<aeronaves.size(); i++){
             Aeronave atual = aeronaves.get(i);
-            res += "  ("+ atual.getCodigo() + ") - " + atual.getDescricao() +"\n";
+            res += "  " + atual.toString() + "\n";
         }
 
         return res;

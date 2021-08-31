@@ -19,5 +19,10 @@ public class Aeronave {
 
 	public int getCapacidade(){ return capacidade; }
 
+	@Override
+	public String toString(){
+		return "(" + getCodigo() + ") - " + getDescricao();
+	}
+
 	public static int getTotalAeronaves(){ return totalAeronaves; }
 }

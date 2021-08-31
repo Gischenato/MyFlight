@@ -20,8 +20,6 @@ public class GerenciadorVoos {
     }
 
     public String toString(){
-        DateTimeFormatter formatado = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
         String res = "Voos:\n";
         res += " Cia  Origem  Destino Cod  Horario Duracao   Data\n";
         res += "                                    (min)\n";

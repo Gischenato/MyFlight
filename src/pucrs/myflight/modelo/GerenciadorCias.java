@@ -22,7 +22,7 @@ public class GerenciadorCias {
 
 		for(int i = 0; i<empresas.size(); i++){
 			CiaAerea atual = empresas.get(i);
-			res += "  ("+ atual.getCodigo() + ") - " + atual.getNome() +"\n";
+			res += "  "+ atual.toString() + "\n";
 		}
 
 		return res;
