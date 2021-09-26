@@ -16,6 +16,8 @@ import pucrs.myflight.modelo.GerenciadorRotas;
 import pucrs.myflight.modelo.GerenciadorVoos;
 import pucrs.myflight.modelo.Rota;
 import pucrs.myflight.modelo.Voo;
+import pucrs.myflight.modelo.VooEscalas;
+import pucrs.myflight.modelo.VooVariasEscalas;
 
 public class App {
 
@@ -70,30 +72,48 @@ public class App {
 		Rota r2 = new Rota(c2, ap3, ap1, a4);
 		Rota r3 = new Rota(c3, ap4, ap2, a2);
 		Rota r4 = new Rota(c4, ap2, ap3, a3);
+		Rota r5 = new Rota(c2, ap3, ap4, a1);
 		rotas.adicionar(r1);
 		rotas.adicionar(r2);
 		rotas.adicionar(r3);
 		rotas.adicionar(r4);
+		rotas.adicionar(r5);
 
 		//Criando Data/hora e duracao
 		LocalDateTime dh1 = LocalDateTime.of(2020, Month.APRIL, 28, 15, 30);
-		LocalDateTime dh2 = LocalDateTime.of(2020, Month.AUGUST, 16, 17, 15);
-		LocalDateTime dh3 = LocalDateTime.of(2020, Month.AUGUST, 10, 12, 00);
-		LocalDateTime dh4 = LocalDateTime.of(2020, Month.JANUARY, 1, 14, 00); //nao utilizada
+		LocalDateTime dh2 = LocalDateTime.of(2020, Month.APRIL, 28, 20, 00);
+		LocalDateTime dh3 = LocalDateTime.of(2020, Month.APRIL, 10, 12, 00);
+		LocalDateTime dh4 = LocalDateTime.of(2020, Month.APRIL, 28, 20, 00); 
 		Duration d1 = Duration.ofMinutes(120);
 		Duration d2 = Duration.ofMinutes(300);
+		Duration d3 = Duration.ofMinutes(200);
+		Duration d4 = Duration.ofMinutes(600);
 
 		//Adicionando os Voos
 		Voo v1 = new Voo(r1, dh1, d1);
 		Voo v2 = new Voo(r2, dh2, d2);
 		Voo v3 = new Voo(r3, dh2, d1);
 		Voo v4 = new Voo(r4, dh3, d2);
-		Voo v5 = new Voo(r3, d1);  //Criando Voo com o segundo construtor (Exercicio 1)
+		Voo v5 = new Voo(r5, dh1, d2);
+		Voo v6 = new Voo(r3, d1);  //Criando Voo com o segundo construtor (Exercicio 1)
+
+		VooEscalas ve1 = new VooEscalas(r1, r4, dh1, d3, dh4, d4);
+
+		ArrayList<Voo> listaEscalaDeVoos = new ArrayList<>();
+		listaEscalaDeVoos.add(v2);
+		listaEscalaDeVoos.add(v1);
+		listaEscalaDeVoos.add(v4);
+		listaEscalaDeVoos.add(v5);
+		VooVariasEscalas vve1 = new VooVariasEscalas(r4, dh1, d3, listaEscalaDeVoos);
+
+		
 		voos.adicionar(v1);
 		voos.adicionar(v2);
 		voos.adicionar(v3);
 		voos.adicionar(v4);
 		voos.adicionar(v5);
+		voos.adicionar(ve1);
+		voos.adicionar(vve1);
 
 
 		////// TESTE DO GERENCIADOR DE AERONAVES ////////
@@ -162,10 +182,10 @@ public class App {
 
 		System.out.println(voos.toString());
 		System.out.println("\n");
-		System.out.println("Lista de voos: (usando foreach e listarTodos())");
-		for (Voo voo : listaDeVoos) {
-			System.out.println(voo.toString());
-		}
+		// System.out.println("Lista de voos: (usando foreach e listarTodos())");
+		// for (Voo voo : listaDeVoos) {
+		// 	System.out.println(voo.toString());
+		// }
 		
 
 		ArrayList<Voo> teste6 = voos.buscarPorData(dh4);
