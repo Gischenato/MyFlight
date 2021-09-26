@@ -1,6 +1,6 @@
 package pucrs.myflight.modelo;
 
-public class Aeronave {
+public class Aeronave implements Contavel, Comparable<Aeronave>{
 	private String codigo;
 	private String descricao;
 	private int capacidade;
@@ -12,6 +12,10 @@ public class Aeronave {
 		this.descricao = descricao;
 		this.capacidade = capacidade;
 	}
+
+	public int objetosCriados(){ return totalAeronaves; }
+
+	public int compareTo(Aeronave outra) { return descricao.compareTo(outra.getDescricao()); }
 	
 	public String getCodigo() { return codigo; }
 	
@@ -23,6 +27,4 @@ public class Aeronave {
 	public String toString(){
 		return "(" + getCodigo() + ") - " + getDescricao();
 	}
-
-	public static int getTotalAeronaves(){ return totalAeronaves; }
 }

@@ -99,6 +99,9 @@ public class App {
 		////// TESTE DO GERENCIADOR DE AERONAVES ////////
 
 		System.out.println(aeronaves.toString());
+		aeronaves.ordenaDescricao(); //Ordenando a lista.
+		System.out.println("Ordendado");
+		System.out.println(aeronaves.toString());
 
 		String codAeronave = "380";
 
@@ -126,6 +129,9 @@ public class App {
 		////// TESTE DO GERENCIADOR DE AEROPORTOS ////////
 		
 		System.out.println(aeroportos.toString());
+		aeroportos.ordenaDescricao(); //Ordenando a lista.
+		System.out.println("Ordendado");
+		System.out.println(aeroportos.toString());
 
 		String codAeroporto = "GRU";
 
@@ -135,6 +141,9 @@ public class App {
 
 		////// TESTE DO GERENCIADOR DE ROTAS ////////
 
+		System.out.println(rotas.toString());
+		rotas.ordenaDescricao();
+		System.out.println("Ordendado");
 		System.out.println(rotas.toString());
 
 		ArrayList<Rota> teste5 = rotas.buscarPorDestino(ap2);
@@ -177,6 +186,8 @@ public class App {
 		System.out.printf("A distancia entre %s e %s eh %.2fkm\n",salgadoFilho.getCodigo(), guarulhos.getCodigo(), distancia);
 	
 		System.out.println(g1.distancia(g2));
+
+		
 		
 	}
 }

@@ -1,6 +1,6 @@
 package pucrs.myflight.modelo;
 
-public class Rota {
+public class Rota implements Contavel, Comparable<Rota>{
 	private CiaAerea cia;
 	private Aeroporto origem;
 	private Aeroporto destino;
@@ -23,7 +23,9 @@ public class Rota {
 	
 	public Aeronave getAeronave() { return aeronave; } 
 
-	public static int getTotalRotas(){ return totalRotas; }
+	public int objetosCriados(){ return totalRotas; }
+
+	public int compareTo(Rota outra){ return cia.getNome().compareTo(outra.getCia().getNome());}
 
 	public String toString(){
 		String res = "";
