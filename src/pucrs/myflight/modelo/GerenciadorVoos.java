@@ -5,17 +5,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class GerenciadorVoos {
-    private ArrayList<Voo> voos;
+    private ArrayList<VooDireto> voos;
 
     public GerenciadorVoos(){
         voos = new ArrayList<>();
     }
 
-    public void adicionar(Voo voo){
+    public void adicionar(VooDireto voo){
         voos.add(voo);
     }
 
-    public ArrayList<Voo> listarTodos(){
+    public ArrayList<VooDireto> listarTodos(){
         return voos;
     }
 
@@ -25,18 +25,18 @@ public class GerenciadorVoos {
         res += "                                    (min)\n";
 
         for (int i = 0; i < voos.size(); i++) {
-            Voo atual = voos.get(i);
+            VooDireto atual = voos.get(i);
             res+= atual.toString() + "\n";
         }
 
         return res;
     }
 
-    public ArrayList<Voo> buscarPorData(LocalDateTime data){
-        ArrayList<Voo> temp = new ArrayList<>();
+    public ArrayList<VooDireto> buscarPorData(LocalDateTime data){
+        ArrayList<VooDireto> temp = new ArrayList<>();
         for (int i = 0; i < voos.size(); i++) {
-            Voo atual = voos.get(i);
-            if(data == atual.getDatahora()){ temp.add(atual); }
+            VooDireto atual = voos.get(i);
+            if(data == atual.getDataHora()){ temp.add(atual); }
         }
         return temp.size() == 0 ? null : temp;
     }

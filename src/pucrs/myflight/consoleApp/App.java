@@ -15,7 +15,7 @@ import pucrs.myflight.modelo.GerenciadorCias;
 import pucrs.myflight.modelo.GerenciadorRotas;
 import pucrs.myflight.modelo.GerenciadorVoos;
 import pucrs.myflight.modelo.Rota;
-import pucrs.myflight.modelo.Voo;
+import pucrs.myflight.modelo.VooDireto;
 import pucrs.myflight.modelo.VooEscalas;
 import pucrs.myflight.modelo.VooVariasEscalas;
 
@@ -90,16 +90,15 @@ public class App {
 		Duration d4 = Duration.ofMinutes(600);
 
 		//Adicionando os Voos
-		Voo v1 = new Voo(r1, dh1, d1);
-		Voo v2 = new Voo(r2, dh2, d2);
-		Voo v3 = new Voo(r3, dh2, d1);
-		Voo v4 = new Voo(r4, dh3, d2);
-		Voo v5 = new Voo(r5, dh1, d2);
-		Voo v6 = new Voo(r3, d1);  //Criando Voo com o segundo construtor (Exercicio 1)
+		VooDireto v1 = new VooDireto(r1, dh1);
+		VooDireto v2 = new VooDireto(r2, dh2);
+		VooDireto v3 = new VooDireto(r3, dh2);
+		VooDireto v4 = new VooDireto(r4, dh3);
+		VooDireto v5 = new VooDireto(r5, dh1);
 
-		VooEscalas ve1 = new VooEscalas(r1, r4, dh1, d3, dh4, d4);
+		VooEscalas ve1 = new VooEscalas(r1, r4, dh1, dh4);
 
-		ArrayList<Voo> listaEscalaDeVoos = new ArrayList<>();
+		ArrayList<VooDireto> listaEscalaDeVoos = new ArrayList<>();
 		listaEscalaDeVoos.add(v2);
 		listaEscalaDeVoos.add(v1);
 		listaEscalaDeVoos.add(v4);
@@ -178,7 +177,7 @@ public class App {
 		}
 
 		////// TESTE DO GERENCIADOR DE VOOS ////////
-		ArrayList<Voo> listaDeVoos = voos.listarTodos();
+		ArrayList<VooDireto> listaDeVoos = voos.listarTodos();
 
 		System.out.println(voos.toString());
 		System.out.println("\n");
@@ -188,7 +187,7 @@ public class App {
 		// }
 		
 
-		ArrayList<Voo> teste6 = voos.buscarPorData(dh4);
+		ArrayList<VooDireto> teste6 = voos.buscarPorData(dh4);
 		if(teste6 != null){
 			System.out.printf("Encontrei %d voo(s)", teste6.size());
 		}else{

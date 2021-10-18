@@ -4,18 +4,18 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class VooVariasEscalas extends Voo{
-    private ArrayList<Voo> escalas;
+public class VooVariasEscalas extends VooDireto{
+    private ArrayList<VooDireto> escalas;
 
-    public VooVariasEscalas(Rota rota, LocalDateTime datahora, Duration duracao, ArrayList<Voo> escalas) {
-        super(rota, datahora, duracao);
+    public VooVariasEscalas(Rota rota, LocalDateTime datahora, Duration duracao, ArrayList<VooDireto> escalas) {
+        super(rota, datahora);
         this.escalas = escalas;
     }
 
      @Override
      public String toString() {
         String res = "";
-        for(Voo voo : escalas) {
+        for(VooDireto voo : escalas) {
             res += voo.toString() + "\n";
         }
 

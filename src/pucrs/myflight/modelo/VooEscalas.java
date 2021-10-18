@@ -4,16 +4,15 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class VooEscalas extends Voo{
+public class VooEscalas extends VooDireto{
     private Rota rotaFinal;
     private Duration duracaoVoo2;
     private LocalDateTime dataHoraFinal;
 
     // Construtor
-    public VooEscalas(Rota rota, Rota rotaFinal, LocalDateTime dh, Duration dur, LocalDateTime dhFinal, Duration durFinal) {
-       super(rota, dh, dur); // chama o construtor de Voo
+    public VooEscalas(Rota rota, Rota rotaFinal, LocalDateTime dh, LocalDateTime dhFinal) {
+       super(rota, dh); // chama o construtor de Voo
        this.rotaFinal = rotaFinal;
-       this.duracaoVoo2 = durFinal;
        this.dataHoraFinal = dhFinal;
     }
 
