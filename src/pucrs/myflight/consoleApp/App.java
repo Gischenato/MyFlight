@@ -17,7 +17,6 @@ import pucrs.myflight.modelo.GerenciadorVoos;
 import pucrs.myflight.modelo.Rota;
 import pucrs.myflight.modelo.VooDireto;
 import pucrs.myflight.modelo.VooEscalas;
-import pucrs.myflight.modelo.VooVariasEscalas;
 
 public class App {
 
@@ -96,14 +95,13 @@ public class App {
 		VooDireto v4 = new VooDireto(r4, dh3);
 		VooDireto v5 = new VooDireto(r5, dh1);
 
-		VooEscalas ve1 = new VooEscalas(r1, r4, dh1, dh4);
+
 
 		ArrayList<VooDireto> listaEscalaDeVoos = new ArrayList<>();
 		listaEscalaDeVoos.add(v2);
 		listaEscalaDeVoos.add(v1);
 		listaEscalaDeVoos.add(v4);
 		listaEscalaDeVoos.add(v5);
-		VooVariasEscalas vve1 = new VooVariasEscalas(r4, dh1, d3, listaEscalaDeVoos);
 
 		
 		voos.adicionar(v1);
@@ -111,102 +109,116 @@ public class App {
 		voos.adicionar(v3);
 		voos.adicionar(v4);
 		voos.adicionar(v5);
-		voos.adicionar(ve1);
-		voos.adicionar(vve1);
 
 
-		////// TESTE DO GERENCIADOR DE AERONAVES ////////
+		// ////// TESTE DO GERENCIADOR DE AERONAVES ////////
 
-		System.out.println(aeronaves.toString());
-		aeronaves.ordenaDescricao(); //Ordenando a lista.
-		System.out.println("Ordendado");
-		System.out.println(aeronaves.toString());
+		// System.out.println(aeronaves.toString());
+		// aeronaves.ordenaDescricao(); //Ordenando a lista.
+		// System.out.println("Ordendado");
+		// System.out.println(aeronaves.toString());
 
-		String codAeronave = "380";
+		// String codAeronave = "380";
 
-		Aeronave teste1 = aeronaves.buscarPorCodigo(codAeronave);
+		// Aeronave teste1 = aeronaves.buscarPorCodigo(codAeronave);
 
-		if(teste1 != null){
-			System.out.println("\n" + teste1.getDescricao());
-		}else{
-			System.out.printf("Aeronave com codigo %s nao encontrado\n", codAeronave);
-		}
-
-		/////// TESTE DO GERENCIADOR DE CIAS ////////
-
-		System.out.println(empresas.toString());
-
-		String codEmpresa = "G2";
-		String nomeEmpresa = "Azul Linhas Aereas";
-
-		CiaAerea teste2 = empresas.buscarPorCodigo(codEmpresa);
-		CiaAerea teste3 = empresas.buscarPorNome(nomeEmpresa);
-
-		System.out.println(teste2 == null?("Empresa com codigo " + codEmpresa + " nao encontrado") : teste2.getNome());
-		System.out.println(teste3 == null?("Empresa com nome " + nomeEmpresa + " nao encontrado") : teste3.getNome());
-
-		////// TESTE DO GERENCIADOR DE AEROPORTOS ////////
-		
-		System.out.println(aeroportos.toString());
-		aeroportos.ordenaDescricao(); //Ordenando a lista.
-		System.out.println("Ordendado");
-		System.out.println(aeroportos.toString());
-
-		String codAeroporto = "GRU";
-
-		Aeroporto teste4 = aeroportos.buscarPorCodigo(codAeroporto);
-
-		System.out.println(teste4 == null?("Aeroporto com codigo " + codAeroporto + " nao encontrado") : teste4.getNome());
-
-		////// TESTE DO GERENCIADOR DE ROTAS ////////
-
-		System.out.println(rotas.toString());
-		rotas.ordenaDescricao();
-		System.out.println("Ordendado");
-		System.out.println(rotas.toString());
-
-		ArrayList<Rota> teste5 = rotas.buscarPorDestino(ap2);
-		if(teste5 != null){
-			System.out.printf("Foram encontrados %d rotas:\n", teste5.size());
-			for (int i = 0; i < teste5.size(); i++) {
-				Rota atual = teste5.get(i);
-				System.out.println("  " + atual.toString());
-			}
-		}else{
-			System.out.println("Nenhuma rota encontrada.");
-		}
-
-		////// TESTE DO GERENCIADOR DE VOOS ////////
-		ArrayList<VooDireto> listaDeVoos = voos.listarTodos();
-
-		System.out.println(voos.toString());
-		System.out.println("\n");
-		// System.out.println("Lista de voos: (usando foreach e listarTodos())");
-		// for (Voo voo : listaDeVoos) {
-		// 	System.out.println(voo.toString());
+		// if(teste1 != null){
+		// 	System.out.println("\n" + teste1.getDescricao());
+		// }else{
+		// 	System.out.printf("Aeronave com codigo %s nao encontrado\n", codAeronave);
 		// }
+
+		// /////// TESTE DO GERENCIADOR DE CIAS ////////
+
+		// System.out.println(empresas.toString());
+
+		// String codEmpresa = "G2";
+		// String nomeEmpresa = "Azul Linhas Aereas";
+
+		// CiaAerea teste2 = empresas.buscarPorCodigo(codEmpresa);
+		// CiaAerea teste3 = empresas.buscarPorNome(nomeEmpresa);
+
+		// System.out.println(teste2 == null?("Empresa com codigo " + codEmpresa + " nao encontrado") : teste2.getNome());
+		// System.out.println(teste3 == null?("Empresa com nome " + nomeEmpresa + " nao encontrado") : teste3.getNome());
+
+		// ////// TESTE DO GERENCIADOR DE AEROPORTOS ////////
+		
+		// System.out.println(aeroportos.toString());
+		// aeroportos.ordenaDescricao(); //Ordenando a lista.
+		// System.out.println("Ordendado");
+		// System.out.println(aeroportos.toString());
+
+		// String codAeroporto = "GRU";
+
+		// Aeroporto teste4 = aeroportos.buscarPorCodigo(codAeroporto);
+
+		// System.out.println(teste4 == null?("Aeroporto com codigo " + codAeroporto + " nao encontrado") : teste4.getNome());
+
+		// ////// TESTE DO GERENCIADOR DE ROTAS ////////
+
+		// System.out.println(rotas.toString());
+		// rotas.ordenaDescricao();
+		// System.out.println("Ordendado");
+		// System.out.println(rotas.toString());
+
+		// ArrayList<Rota> teste5 = rotas.buscarPorDestino(ap2);
+		// if(teste5 != null){
+		// 	System.out.printf("Foram encontrados %d rotas:\n", teste5.size());
+		// 	for (int i = 0; i < teste5.size(); i++) {
+		// 		Rota atual = teste5.get(i);
+		// 		System.out.println("  " + atual.toString());
+		// 	}
+		// }else{
+		// 	System.out.println("Nenhuma rota encontrada.");
+		// }
+
+		// ////// TESTE DO GERENCIADOR DE VOOS ////////
+		// ArrayList<VooDireto> listaDeVoos = voos.listarTodos();
+
+		// System.out.println(voos.toString());
+		// System.out.println("\n");
+		// // System.out.println("Lista de voos: (usando foreach e listarTodos())");
+		// // for (Voo voo : listaDeVoos) {
+		// // 	System.out.println(voo.toString());
+		// // }
 		
 
-		ArrayList<VooDireto> teste6 = voos.buscarPorData(dh4);
-		if(teste6 != null){
-			System.out.printf("Encontrei %d voo(s)", teste6.size());
-		}else{
-			System.out.println("Nao encontrei nenhum voo.");
-		}
+		// ArrayList<VooDireto> teste6 = voos.buscarPorData(dh4);
+		// if(teste6 != null){
+		// 	System.out.printf("Encontrei %d voo(s)", teste6.size());
+		// }else{
+		// 	System.out.println("Nao encontrei nenhum voo.");
+		// }
 
 
-		//////// TESTANDO A FUNCAO DISTANCIA ////////
+		// //////// TESTANDO A FUNCAO DISTANCIA ////////
 
-		Aeroporto salgadoFilho = aeroportos.buscarPorCodigo("POA");
-		Aeroporto guarulhos = aeroportos.buscarPorCodigo("GRU");
+		// Aeroporto salgadoFilho = aeroportos.buscarPorCodigo("POA");
+		// Aeroporto guarulhos = aeroportos.buscarPorCodigo("GRU");
 
-		double distancia = Geo.distancia(salgadoFilho.getLocal(), guarulhos.getLocal());
+		// double distancia = Geo.distancia(salgadoFilho.getLocal(), guarulhos.getLocal());
 
-		System.out.printf("A distancia entre %s e %s eh %.2fkm\n",salgadoFilho.getCodigo(), guarulhos.getCodigo(), distancia);
+		// System.out.printf("A distancia entre %s e %s eh %.2fkm\n",salgadoFilho.getCodigo(), guarulhos.getCodigo(), distancia);
 	
-		System.out.println(g1.distancia(g2));
+		// System.out.println(g1.distancia(g2));
+
+
+
+		//////////////
+		Rota poaSp = new Rota(c1, ap1, ap2, a1);
+		Rota spPoa = new Rota(c1, ap2, ap1, a1);
+		VooDireto poaSpvoo = new VooDireto(poaSp, dh1);
+		VooEscalas poSpSpPoa = new VooEscalas(dh1);
+		poSpSpPoa.adicionarRota(poaSp);
+		poSpSpPoa.adicionarRota(spPoa);
+		/////////////
+		
+		// System.out.println(poaSpvoo.toString());
+
+		System.out.println(poSpSpPoa.toString());
 
 		
+
 		
 	}
 }

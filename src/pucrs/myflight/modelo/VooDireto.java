@@ -9,45 +9,36 @@ public class VooDireto extends Voo{
 	
 	public enum Status { CONFIRMADO, ATRASADO, CANCELADO };
 	
-	private LocalDateTime datahora;
-	private Duration duracao;
 	private Rota rota;
 	private Status status;
-	private static int totalVoos = 0;
 	
 	public VooDireto(Rota rota, LocalDateTime datahora) {
-		totalVoos++;
+		super(datahora);
 		this.rota = rota;
-		this.datahora = datahora;
 		this.status = Status.CONFIRMADO; // default é confirmado
-
-		Aeroporto origem = rota.getOrigem();
-		Aeroporto destiono = rota.getDestino();
-
-		
-
 	}
 
 
 	public Rota getRota() { return rota; }
 	
 	@Override
-	public LocalDateTime getDataHora() { return datahora; }
-	
-	@Override
 	public Duration getDuration() {
-
-		return this.duracao;
+		Aeroporto origem = rota.getOrigem();
+		Aeroporto destino = rota.getDestino();
+		double distancia = origem.getLocal().distancia(destino.getLocal());
+		double tempo = (distancia/805 + 0.5) * 60;
+		Duration duration = Duration.ofMinutes( (long) tempo);
+		return duration;
 	 }
 	
 	public Status getStatus() { return status; }
 
-	public static int getTotalVoos(){ return totalVoos; }
 	
 	public void setStatus(Status novoStatus) {
 		this.status = novoStatus;
 	}
 
+	@Override
 	public String toString(){
         DateTimeFormatter formatado = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String res = "";

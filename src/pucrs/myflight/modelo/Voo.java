@@ -10,9 +10,13 @@ public abstract class Voo {
 
     private LocalDateTime datahora;
 
+    public Voo(LocalDateTime dh){
+        this.datahora = dh;
+    }
+    
+    public  LocalDateTime getDataHora(){ return datahora; };
+    
     public abstract Rota getRota();
-
-    public abstract LocalDateTime getDataHora();
-
+    
     public abstract Duration getDuration();
 }
