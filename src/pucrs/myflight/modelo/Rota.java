@@ -27,6 +27,7 @@ public class Rota implements Contavel, Comparable<Rota>{
 
 	public int compareTo(Rota outra){ return cia.getNome().compareTo(outra.getCia().getNome());}
 
+     @Override
 	public String toString(){
 		String res = "";
 		res += cia.getCodigo() + "\t" + origem.getCodigo() + " --> " + destino.getCodigo() + " | " + aeronave.getCodigo();
