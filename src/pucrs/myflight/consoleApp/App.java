@@ -33,12 +33,14 @@ public class App {
           try {
                empresas.carregaDados();
                aeronaves.carregaDados();
+               aeroportos.carregaDados();
           } catch (Exception e) {
                System.out.println("Erro de IO ao carregar dados.");
           }
 
           System.out.println(empresas.getTotalCadastrados() + " Cias cadastradas.");
           System.out.println(aeronaves.getTotalCadastrados() + " Aeronaves cadastradas.");
+          System.out.println(aeroportos.getTotalCadastrados() + " Aeroportos cadastradas.");
 
           // // Adicionando as Aeronaves
           // Aeronave a1 = new Aeronave("733", "Boeing 737-300", 140);
