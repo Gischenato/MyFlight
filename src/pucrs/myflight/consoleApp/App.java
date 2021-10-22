@@ -29,14 +29,16 @@ public class App {
           GerenciadorAeroportos aeroportos = new GerenciadorAeroportos();
           GerenciadorRotas rotas = new GerenciadorRotas();
           GerenciadorVoos voos = new GerenciadorVoos();
-          
+
           try {
                empresas.carregaDados();
+               aeronaves.carregaDados();
           } catch (Exception e) {
                System.out.println("Erro de IO ao carregar dados.");
           }
 
-          System.out.println(empresas.getTotalCadastrados());
+          System.out.println(empresas.getTotalCadastrados() + " Cias cadastradas.");
+          System.out.println(aeronaves.getTotalCadastrados() + " Aeronaves cadastradas.");
 
           // // Adicionando as Aeronaves
           // Aeronave a1 = new Aeronave("733", "Boeing 737-300", 140);
