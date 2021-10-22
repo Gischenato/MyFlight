@@ -1,6 +1,11 @@
 package pucrs.myflight.modelo;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GerenciadorCias {
 	private ArrayList<CiaAerea> empresas;
@@ -12,6 +17,28 @@ public class GerenciadorCias {
 	public void adicionar(CiaAerea cia){
 		empresas.add(cia);
 	}
+
+	public int getTotalCadastrados(){
+        return empresas.size();
+    }
+
+    public void carregaDados() throws IOException{
+		Path dados = Paths.get("C:\\Users\\GISCH\\Desktop\\teste\\src\\pucrs\\myflight\\data\\airlines.dat");
+        Scanner reader = new Scanner(Files.newBufferedReader(dados));
+		reader.useDelimiter("[;\n]");
+		reader.nextLine();
+        while(reader.hasNext()){
+            try {
+                String codigo = reader.next();
+                String nome = reader.next();
+				CiaAerea cia = new CiaAerea(codigo, nome);
+				adicionar(cia);
+
+            } catch (Exception e) {
+                System.out.println("Erro ao adicionar Cia");
+            }
+        }
+    }
 
 	public ArrayList<CiaAerea> listarTodos(){
         return empresas;
