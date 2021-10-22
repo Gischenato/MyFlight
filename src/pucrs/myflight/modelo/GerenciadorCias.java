@@ -27,6 +27,7 @@ public class GerenciadorCias {
         Scanner reader = new Scanner(Files.newBufferedReader(dados));
 		reader.useDelimiter("[;\n]");
 		reader.nextLine();
+		int erros = 0;
         while(reader.hasNext()){
             try {
                 String codigo = reader.next();
@@ -35,9 +36,10 @@ public class GerenciadorCias {
 				adicionar(cia);
 
             } catch (Exception e) {
-                System.out.println("Erro ao adicionar Cia");
-            }
+				erros++;
+			}
         }
+		if(erros > 0) System.out.println(erros + " erros ao adicionar cias");
     }
 
 	public ArrayList<CiaAerea> listarTodos(){
