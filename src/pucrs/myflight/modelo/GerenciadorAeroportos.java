@@ -24,7 +24,7 @@ public class GerenciadorAeroportos {
     }
 
     public void carregaDados() throws IOException{
-		Path dados = Paths.get("C:\\Users\\GISCH\\Desktop\\teste\\src\\pucrs\\myflight\\data\\airports.dat");
+		Path dados = Paths.get("src\\pucrs\\myflight\\data\\airports.dat");
         Scanner reader = new Scanner(Files.newBufferedReader(dados));
         reader.useDelimiter("[;\n]");
         reader.nextLine();
