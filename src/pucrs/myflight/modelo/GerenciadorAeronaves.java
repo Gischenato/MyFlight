@@ -25,7 +25,7 @@ public class GerenciadorAeronaves {
     }
 
     public void carregaDados() throws IOException{
-		Path dados = Paths.get("src\\pucrs\\myflight\\data\\equipment.dat");
+		Path dados = Paths.get("src/pucrs/myflight/data/equipment.dat");
         Scanner reader = new Scanner(Files.newBufferedReader(dados));
         reader.useDelimiter("[;\n]");
         reader.nextLine();

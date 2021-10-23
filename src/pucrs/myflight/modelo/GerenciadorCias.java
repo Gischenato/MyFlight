@@ -24,7 +24,7 @@ public class GerenciadorCias {
     }
 
     public void carregaDados() throws IOException{
-		Path dados = Paths.get("src\\pucrs\\myflight\\data\\airlines.dat");
+		Path dados = Paths.get("src/pucrs/myflight/data/airlines.dat");
         Scanner reader = new Scanner(Files.newBufferedReader(dados));
 		reader.useDelimiter("[;\n]");
 		reader.nextLine();

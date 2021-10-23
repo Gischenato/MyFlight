@@ -1,7 +1,6 @@
 package pucrs.myflight.modelo;
 
 import java.io.IOException;
-import java.nio.channels.ReadPendingException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -31,7 +30,7 @@ public class GerenciadorRotas {
     public void carregaDados(GerenciadorCias empresas,
                              GerenciadorAeroportos aeroportos,
                              GerenciadorAeronaves aeronaves) throws IOException{
-        Path dados = Paths.get("src\\pucrs\\myflight\\data\\routes.dat");
+        Path dados = Paths.get("src/pucrs/myflight/data/routes.dat");
         Scanner reader = new Scanner(Files.newBufferedReader(dados));
         reader.useDelimiter("[;\n]");
         reader.nextLine();
