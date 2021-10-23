@@ -1,7 +1,13 @@
 package pucrs.myflight.modelo;
 
+import java.io.IOException;
+import java.nio.channels.ReadPendingException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 public class GerenciadorRotas {
     private ArrayList<Rota> rotas;
@@ -16,6 +22,42 @@ public class GerenciadorRotas {
 
     public ArrayList<Rota> listarTodos(){
         return rotas;
+    }
+
+    public int getTotalCadastrados(){
+        return rotas.size();
+    }
+
+    public void carregaDados(GerenciadorCias empresas,
+                             GerenciadorAeroportos aeroportos,
+                             GerenciadorAeronaves aeronaves) throws IOException{
+        Path dados = Paths.get("src\\pucrs\\myflight\\data\\routes.dat");
+        Scanner reader = new Scanner(Files.newBufferedReader(dados));
+        reader.useDelimiter("[;\n]");
+        reader.nextLine();
+        int erros = 0;
+        while(reader.hasNext()){
+            try {
+                String cod_Empresa = reader.next();
+                String cod_Aeroporto_Origem = reader.next();
+                String cod_Aeroporto_Destino = reader.next();
+                reader.next();
+                reader.next();
+                String cod_Aeronave = reader.next();
+                cod_Aeronave = cod_Aeronave.substring(0, 3);
+
+                CiaAerea cia = empresas.buscarPorCodigo(cod_Empresa);
+                Aeroporto origem = aeroportos.buscarPorCodigo(cod_Aeroporto_Origem);
+                Aeroporto destino = aeroportos.buscarPorCodigo(cod_Aeroporto_Destino);
+                Aeronave aeronave = aeronaves.buscarPorCodigo(cod_Aeronave);
+                Rota rota = new Rota(cia, origem, destino, aeronave);
+                adicionar(rota);
+
+            } catch (Exception e) {
+                erros++;
+            }
+        }
+        if(erros > 0) System.out.println(erros + " erros ao adicionar rotas"); 
     }
 
     public void ordenaDescricao(){

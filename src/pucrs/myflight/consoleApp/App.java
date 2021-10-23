@@ -5,6 +5,7 @@ import pucrs.myflight.modelo.GerenciadorAeroportos;
 import pucrs.myflight.modelo.GerenciadorCias;
 import pucrs.myflight.modelo.GerenciadorRotas;
 import pucrs.myflight.modelo.GerenciadorVoos;
+import pucrs.myflight.modelo.Rota;
 
 public class App {
 
@@ -17,11 +18,11 @@ public class App {
           GerenciadorAeroportos aeroportos = new GerenciadorAeroportos();
           GerenciadorRotas rotas = new GerenciadorRotas();
           GerenciadorVoos voos = new GerenciadorVoos();
-
           try {
                empresas.carregaDados();
                aeronaves.carregaDados();
                aeroportos.carregaDados();
+               rotas.carregaDados(empresas, aeroportos, aeronaves);
           } catch (Exception e) {
                System.out.println("Erro de IO ao carregar dados.");
           }
@@ -29,5 +30,6 @@ public class App {
           System.out.println(empresas.getTotalCadastrados() + " Cias cadastradas.");
           System.out.println(aeronaves.getTotalCadastrados() + " Aeronaves cadastradas.");
           System.out.println(aeroportos.getTotalCadastrados() + " Aeroportos cadastradas.");
+          System.out.println(rotas.getTotalCadastrados() + " Rotas cadastradas.");
      }
 }
