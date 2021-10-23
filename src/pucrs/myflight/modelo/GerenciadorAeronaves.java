@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class GerenciadorAeronaves {
@@ -62,12 +63,10 @@ public class GerenciadorAeronaves {
         return res;
     }
 
-    public Aeronave buscarPorCodigo(String cod){
-        for(int i = 0; i<aeronaves.size(); i++){
-            Aeronave atual = aeronaves.get(i);
-            if(cod == atual.getCodigo()){ return atual; }
-        }
-
-        return null;
+    public Aeronave buscarPorCodigo(String cod) throws NoSuchElementException{
+        return aeronaves.stream()
+               .filter(p -> p.getCodigo().equals(cod))
+               .findFirst()
+               .get();
     }
 }

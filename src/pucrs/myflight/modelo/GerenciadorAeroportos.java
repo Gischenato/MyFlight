@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class GerenciadorAeroportos {
@@ -66,12 +67,10 @@ public class GerenciadorAeroportos {
         return res;
     }
 
-    public Aeroporto buscarPorCodigo(String cod){
-        for (int i = 0; i < aeroportos.size(); i++) {
-            Aeroporto atual = aeroportos.get(i);
-            if(cod == atual.getCodigo()){ return atual; }
-        }
-
-        return null;
+    public Aeroporto buscarPorCodigo(String cod) throws NoSuchElementException{
+        return aeroportos.stream()
+                .filter(p -> p.getCodigo().equals(cod))
+                .findFirst()
+                .get();
     }
 }

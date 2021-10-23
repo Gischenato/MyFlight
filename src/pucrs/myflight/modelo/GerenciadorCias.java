@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class GerenciadorCias {
@@ -57,20 +58,17 @@ public class GerenciadorCias {
 		return res;
 	}
 
-	public CiaAerea buscarPorCodigo(String cod){
-		for(int i = 0; i<empresas.size(); i++){
-			CiaAerea atual = empresas.get(i);
-			if(cod == atual.getCodigo()){ return atual; }
-		}
-
-		return null;
+	public CiaAerea buscarPorCodigo(String cod) throws NoSuchElementException{
+		return empresas.stream()
+			   .filter(p -> p.getCodigo().equals(cod))
+			   .findFirst()
+			   .get();
 	}
 
-	public CiaAerea buscarPorNome(String nome){
-		for(int i = 0; i<empresas.size(); i++){
-			CiaAerea atual = empresas.get(i);
-			if(nome == atual.getNome()){ return atual; }
-		}
-		return null;
+	public CiaAerea buscarPorNome(String nome) throws NoSuchElementException{
+		return empresas.stream()
+		.filter(p -> p.getNome().equals(nome))
+		.findFirst()
+		.get();
 	}
 }
