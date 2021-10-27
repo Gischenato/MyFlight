@@ -27,6 +27,7 @@ public class GerenciadorAeronaves {
     public void carregaDados() throws IOException{
 		Path dados = Paths.get("src/pucrs/myflight/data/equipment.dat");
         Scanner reader = new Scanner(Files.newBufferedReader(dados));
+        
         reader.useDelimiter("[;\n]");
         reader.nextLine();
         int erros = 0;
@@ -34,10 +35,12 @@ public class GerenciadorAeronaves {
             try{
                 String codigo = reader.next();
                 String descricao = reader.next();
-                int capacidade = Integer.parseInt(reader.next());
+                int capacidade = Integer.parseInt(reader.next().replace("\r", ""));
                 Aeronave aviao = new Aeronave(codigo, descricao, capacidade);
                 adicionar(aviao);
+                
             }catch(Exception e){
+                 System.out.println(e);
                 erros++;
             }
         }
