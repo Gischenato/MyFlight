@@ -59,16 +59,18 @@ public class GerenciadorCias {
 	}
 
 	public CiaAerea buscarPorCodigo(String cod) throws NoSuchElementException{
-		return empresas.stream()
+          var optional = empresas.stream()
 			   .filter(p -> p.getCodigo().equals(cod))
-			   .findFirst()
-			   .get();
+			   .findFirst();
+          
+          return (optional.isEmpty())? null : optional.get();
 	}
 
 	public CiaAerea buscarPorNome(String nome) throws NoSuchElementException{
-		return empresas.stream()
-		.filter(p -> p.getNome().equals(nome))
-		.findFirst()
-		.get();
+		var optional = empresas.stream()
+		                         .filter(p -> p.getNome().equals(nome))
+		                         .findFirst();
+		
+          return (optional.isEmpty()) ? null : optional.get();
 	}
 }
